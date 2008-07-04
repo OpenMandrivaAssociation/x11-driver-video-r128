@@ -17,7 +17,7 @@ BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: GL-devel
 
 Conflicts: xorg-x11-server < 7.0
-Conflicts: x11-driver-video-ati <= 6.8.0
+Conflicts: x11-driver-video-ati <= 1:6.8.0
 
 %description
 x11-driver-video-r128 is the X.org driver for ATI Rage 128.
