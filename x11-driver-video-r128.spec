@@ -1,6 +1,6 @@
 Name: x11-driver-video-r128
-Version: 6.8.0
-Release: %mkrel 6
+Version: 6.8.1
+Release: %mkrel 1
 Epoch: 1
 Summary: X.org driver for ATI Rage 128
 Group: System/X11
@@ -27,7 +27,7 @@ x11-driver-video-r128 is the X.org driver for ATI Rage 128.
 %setup -q -n xf86-video-r128-%{version}
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
