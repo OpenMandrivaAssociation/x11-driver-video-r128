@@ -1,12 +1,12 @@
 Name: x11-driver-video-r128
 Epoch: 1
-Version: 6.8.1
-Release: 8
+Version: 6.8.2
+Release: 1
 Summary: X.org driver for ATI Rage 128
 Group: System/X11
 License: MIT
 URL: http://xorg.freedesktop.org
-Source: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-r128-%{version}.tar.bz2
+Source0: http://xorg.freedesktop.org/releases/individual/driver/xf86-video-r128-%{version}.tar.bz2
 
 BuildRequires: libdrm-devel >= 2.0
 BuildRequires: x11-proto-devel >= 1.0.0
