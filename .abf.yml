@@ -1,2 +1,4 @@
+removed_sources:
+  xf86-video-r128-6.9.1.tar.bz2: 9f2acdcaf6664ba86d82178c4ce5f1c255a0cd77
 sources:
-  "xf86-video-r128-6.9.1.tar.bz2": 9f2acdcaf6664ba86d82178c4ce5f1c255a0cd77
+  xf86-video-r128-6.9.2.tar.bz2: ba8b695caaecd94e266c480a644eae4c706b77d8
