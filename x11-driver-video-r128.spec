@@ -25,7 +25,10 @@ x11-driver-video-r128 is the X.org driver for ATI Rage 128.
 %apply_patches
 
 %build
-%configure2_5x
+export CC=gcc
+export CXX=g++
+
+%configure
 %make
 
 %install
