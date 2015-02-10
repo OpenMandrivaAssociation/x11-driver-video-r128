@@ -1,0 +1,57 @@
+From 9eb693640136bc8bcbe706d642519b4eb23286d4 Mon Sep 17 00:00:00 2001
+From: Connor Behan <connor.behan@gmail.com>
+Date: Wed, 27 Nov 2013 18:14:43 -0800
+Subject: [PATCH] Only declare PCITAG if we need it
+
+If libpciaccess is available, we do not need to declare the deprecated
+PciTag member because it will not be used.
+
+Signed-off-by: Connor Behan <connor.behan@gmail.com>
+Reviewed-by: Alex Deucher <alexander.deucher@amd.com>
+---
+ src/r128.h        | 2 ++
+ src/r128_driver.c | 7 ++++---
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/src/r128.h b/src/r128.h
+index 90071b4..ee0b1d4 100644
+--- a/src/r128.h
++++ b/src/r128.h
+@@ -301,7 +301,9 @@ struct r128_2d_state {
+ typedef struct {
+     EntityInfoPtr     pEnt;
+     pciVideoPtr       PciInfo;
++#ifndef XSERVER_LIBPCIACCESS
+     PCITAG            PciTag;
++#endif
+     int               Chipset;
+     Bool              Primary;
+ 
+diff --git a/src/r128_driver.c b/src/r128_driver.c
+index 04a4537..0a0b82b 100644
+--- a/src/r128_driver.c
++++ b/src/r128_driver.c
+@@ -1957,9 +1957,6 @@ Bool R128PreInit(ScrnInfoPtr pScrn, int flags)
+     }
+ 
+     info->PciInfo      = xf86GetPciInfoForEntity(info->pEnt->index);
+-    info->PciTag       = pciTag(PCI_DEV_BUS(info->PciInfo),
+-				PCI_DEV_DEV(info->PciInfo),
+-				PCI_DEV_FUNC(info->PciInfo));
+ 
+     xf86DrvMsg(pScrn->scrnIndex, X_INFO,
+ 	       "PCI bus %d card %d func %d\n",
+@@ -1968,6 +1965,10 @@ Bool R128PreInit(ScrnInfoPtr pScrn, int flags)
+ 	       PCI_DEV_FUNC(info->PciInfo));
+ 
+ #ifndef XSERVER_LIBPCIACCESS
++    info->PciTag       = pciTag(PCI_DEV_BUS(info->PciInfo),
++				PCI_DEV_DEV(info->PciInfo),
++				PCI_DEV_FUNC(info->PciInfo));
++
+     if (xf86RegisterResources(info->pEnt->index, 0, ResNone)) goto fail;
+     if (xf86SetOperatingState(resVga, info->pEnt->index, ResUnusedOpr)) goto fail;
+ 
+-- 
+1.8.4.5
+
