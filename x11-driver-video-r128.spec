@@ -3,7 +3,7 @@
 Summary:	X.org driver for ATI Rage 128
 Name:		x11-driver-video-r128
 Epoch:		1
-Version:	6.11.0
+Version:	6.12.0
 Release:	1
 Group:		System/X11
 License:	MIT
