@@ -7,7 +7,7 @@ Version:	6.12.1
 Release:	2
 Group:		System/X11
 License:	MIT
-URL:		http://xorg.freedesktop.org
+URL:		https://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-r128-%{version}.tar.xz
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libdrm)
